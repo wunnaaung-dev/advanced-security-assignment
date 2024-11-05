@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -15,8 +14,10 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import RegisterForm from "../Form/RegisterForm"
 
-export function FuckingTab() {
+export function TabBar() {
+
   return (
     <Tabs defaultValue="register" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
@@ -26,46 +27,30 @@ export function FuckingTab() {
       <TabsContent value="register">
         <Card>
           <CardHeader>
-            <CardTitle>Make Fucking Register</CardTitle>
-            <CardDescription>
-              To use this fucking portal. Make your fucking account first
-            </CardDescription>
+            <CardTitle className="text-center">Sign-up for your account</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" defaultValue="your fucking password" />
-            </div>
+          <CardContent>
+            <RegisterForm />
           </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
         </Card>
       </TabsContent>
       <TabsContent value="login">
         <Card>
           <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
+            <CardTitle>Login to your fucking acc</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
+              <Label htmlFor="username">Username</Label>
+              <Input id="username"/>
             </div>
             <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
+              <Label htmlFor="new">Password</Label>
               <Input id="new" type="password" />
             </div>
           </CardContent>
           <CardFooter>
-            <Button>Save password</Button>
+            <Button>Login</Button>
           </CardFooter>
         </Card>
       </TabsContent>
