@@ -12,15 +12,16 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import PasswordStatusBar from "../PasswordStrength/PasswordStatusBar"
-
+import axios from "axios"
 import CheckTrigger from "../CheckedTrigger/CheckTrigger"
-import React, { useState } from "react"
+import { useState } from "react"
 
 
 const formSchema = z.object({
     username: z.string().min(2, {
         message: "Username must be at least 2 characters.",
     }),
+    email: z.string().email("Invalid email address"),
     password: z.string().min(2, {
         message: "Password blah blah",
     }),
@@ -31,6 +32,7 @@ const formSchema = z.object({
 
 const RegisterForm = () => {
     const [isButtonDisable, setButtonDisable] = useState<boolean>(true)
+    const [error, setError] = useState<string | null>(null)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -38,8 +40,23 @@ const RegisterForm = () => {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        try {
+            setError(null)
+            console.log("username", values.username)
+            const response = await axios.post("http://localhost:8000/api/auth/register", {
+                username: values.username,
+                email: values.email,
+                password: values.password
+            })
+            if(response.status === 200) {
+                document.cookie = `accessToken=${response.data.accessToken}; path=/`;
+                alert(response.data.message)
+                form.reset()
+            }
+        } catch (error) {
+           console.log(error)
+        }
     }
 
     function handleButtonDisable() {
@@ -59,6 +76,19 @@ const RegisterForm = () => {
                             <FormLabel>Username</FormLabel>
                             <FormControl>
                                 <Input placeholder="Enter your name here" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Enter your email address" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>

@@ -17,45 +17,45 @@ interface ImageCaptchaProps {
 }
 
 const imageData: ImagesData = {
-    oppa: [
-        { id: "oppa1", src: '/src/assets/captcha/oppa/oppa1.jpg' },
-        { id: "oppa2", src: '/src/assets/captcha/oppa/oppa2.jpg' },
-        { id: "oppa3", src: '/src/assets/captcha/oppa/oppa3.jpg' },
-        { id: "oppa4", src: '/src/assets/captcha/oppa/oppa4.jpg' },
-        { id: "oppa5", src: '/src/assets/captcha/oppa/oppa5.jpg' },
-    ],
-    gd: [
-        { id: "gd1", src: '/src/assets/captcha/gd/gd1.jpg' },
-        { id: "gd2", src: '/src/assets/captcha/gd/gd2.jpg' },
-        { id: "gd3", src: '/src/assets/captcha/gd/gd3.jpg' },
-    ],
-    bobby: [
-        { id: "bobby1", src: '/src/assets/captcha/bobby/bobby1.jpg' },
-        { id: "bobby2", src: '/src/assets/captcha/bobby/bobby2.jpg' },
-        { id: "bobby3", src: '/src/assets/captcha/bobby/bobby3.jpg' },
-        { id: "bobby4", src: '/src/assets/captcha/bobby/bobby4.jpg' },
-    ],
-    // cars: [
-    //     { id: "car1", src: '/src/assets/captcha/cars/car1.jpg' },
-    //     { id: "car2", src: '/src/assets/captcha/cars/car2.jpg' },
-    //     { id: "car3", src: '/src/assets/captcha/cars/car3.jpg' },
-    //     { id: "car4", src: '/src/assets/captcha/cars/car4.jpg' },
-    //     { id: "car5", src: '/src/assets/captcha/cars/car5.jpg' },
+    // oppa: [
+    //     { id: "oppa1", src: '/src/assets/captcha/oppa/oppa1.jpg' },
+    //     { id: "oppa2", src: '/src/assets/captcha/oppa/oppa2.jpg' },
+    //     { id: "oppa3", src: '/src/assets/captcha/oppa/oppa3.jpg' },
+    //     { id: "oppa4", src: '/src/assets/captcha/oppa/oppa4.jpg' },
+    //     { id: "oppa5", src: '/src/assets/captcha/oppa/oppa5.jpg' },
     // ],
-    // buildings: [
-    //     { id: "building1", src: '/src/assets/captcha/buildings/building1.jpg' },
-    //     { id: "building2", src: '/src/assets/captcha/buildings/building2.jpg' },
-    //     { id: "building3", src: '/src/assets/captcha/buildings/building3.jpg' },
-    //     { id: "building4", src: '/src/assets/captcha/buildings/building4.jpg' },
-    //     { id: "building5", src: '/src/assets/captcha/buildings/building5.jpg' },
+    // gd: [
+    //     { id: "gd1", src: '/src/assets/captcha/gd/gd1.jpg' },
+    //     { id: "gd2", src: '/src/assets/captcha/gd/gd2.jpg' },
+    //     { id: "gd3", src: '/src/assets/captcha/gd/gd3.jpg' },
     // ],
-    // cats: [
-    //     { id: "cat1", src: '/src/assets/captcha/cats/cat1.jpg' },
-    //     { id: "cat2", src: '/src/assets/captcha/cats/cat2.jpg' },
-    //     { id: "cat3", src: '/src/assets/captcha/cats/cat3.jpg' },
-    //     { id: "cat4", src: '/src/assets/captcha/cats/cat4.jpg' },
-    //     { id: "cat5", src: '/src/assets/captcha/cats/cat5.jpg' },
+    // bobby: [
+    //     { id: "bobby1", src: '/src/assets/captcha/bobby/bobby1.jpg' },
+    //     { id: "bobby2", src: '/src/assets/captcha/bobby/bobby2.jpg' },
+    //     { id: "bobby3", src: '/src/assets/captcha/bobby/bobby3.jpg' },
+    //     { id: "bobby4", src: '/src/assets/captcha/bobby/bobby4.jpg' },
     // ],
+    cars: [
+        { id: "car1", src: '/src/assets/captcha/cars/car1.jpg' },
+        { id: "car2", src: '/src/assets/captcha/cars/car2.jpg' },
+        { id: "car3", src: '/src/assets/captcha/cars/car3.jpg' },
+        { id: "car4", src: '/src/assets/captcha/cars/car4.jpg' },
+        { id: "car5", src: '/src/assets/captcha/cars/car5.jpg' },
+    ],
+    buildings: [
+        { id: "building1", src: '/src/assets/captcha/buildings/building1.jpg' },
+        { id: "building2", src: '/src/assets/captcha/buildings/building2.jpg' },
+        { id: "building3", src: '/src/assets/captcha/buildings/building3.jpg' },
+        { id: "building4", src: '/src/assets/captcha/buildings/building4.jpg' },
+        { id: "building5", src: '/src/assets/captcha/buildings/building5.jpg' },
+    ],
+    cats: [
+        { id: "cat1", src: '/src/assets/captcha/cats/cat1.jpg' },
+        { id: "cat2", src: '/src/assets/captcha/cats/cat2.jpg' },
+        { id: "cat3", src: '/src/assets/captcha/cats/cat3.jpg' },
+        { id: "cat4", src: '/src/assets/captcha/cats/cat4.jpg' },
+        { id: "cat5", src: '/src/assets/captcha/cats/cat5.jpg' },
+    ],
 };
 
 const ImageCaptcha: React.FC<ImageCaptchaProps> = ({ onValidate, onSuccess }) => {
