@@ -21,32 +21,45 @@ const LoginForm = () => {
     const [password, setPassword] = useState<string>('');
     const [loginAttemptCount, setLoginAttemptCount] = useState<number>(0);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     function handleButtonDisable() {
         setButtonDisable(false);
     }
 
-    // Enable the login button when both email and password fields are filled
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         if (id === "email") setEmail(value);
         if (id === "password") setPassword(value);
-
-        setButtonDisable(!(email && password));
     };
+
+    interface User {
+        userName: string;
+        email: string;
+    }
+
+    interface Response {
+        user: User;
+    }
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
+        setLoginAttemptCount(prev => prev + 1);
+
         try {
-            const response = await api.post('/auth/login', { email, password });
-            console.log("Login successful", response.data);
-            navigate("/home")
+            const response = await api.post<Response>('/auth/login', { email, password });
+            const currentUser = response.data.user;
+            console.log("Login successful", currentUser);
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            navigate("/home");
         } catch (error) {
-            setLoginAttemptCount(prev => prev + 1);
-            setErrorMessage(error.response?.data?.message || "An error occurred during login");
+            const errorMessage = error.response?.data?.message 
+                ? error.response.data.message 
+                : "An error occurred during login";
+            setErrorMessage(errorMessage);
 
             if (loginAttemptCount >= 2) {
-                setButtonDisable(true); // Optionally disable the button after 3 attempts
+                setButtonDisable(true);
             }
         }
     }
