@@ -80,14 +80,46 @@ const PasswordStatusBar: React.FC<CurrentPwd> = ({ currentPwd }) => {
         };
     }
   };
+
+  const getMissingRequirements = () => {
+    const missing = []
+    if (currentPwd.length < 8) {
+      missing.push("at least 8 characters");
+    }
+    if (!/[A-Z]/.test(currentPwd)) {
+      missing.push("an uppercase letter");
+    }
+    if (!/[0-9]/.test(currentPwd)) {
+      missing.push("a number");
+    }
+    if (!/[!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?]/.test(currentPwd)) {
+      missing.push("a special character");
+    }
+
+    if (missing.length === 0) return null;
+
+    if (missing.length === 1) {
+      return `Your password must contain ${missing[0]}`;
+    }
+
+    const lastRequirement = missing.pop();
+    return `Your password must contain ${missing.join(", ")} and ${lastRequirement}`;
+  }
+
   const { strengthTextColor, statusBarColor } = getStrengthColor();
+  const requirements = getMissingRequirements();
 
   return (
-    <div className="flex justify-between items-center">
-      <div className="w-64 h-[8px] bg-slate-200 rounded-full">
-        <div className={`transition-all duration-300 h-full rounded-full ${statusBarColor}`}></div>
+    <div className="space-y-2">
+      <div className="flex justify-between items-center">
+        <div className="w-64 h-[8px] bg-slate-200 rounded-full">
+          <div className={`transition-all duration-300 h-full rounded-full ${statusBarColor}`}></div>
+        </div>
+        <p className={strengthTextColor}>{strength}</p>
       </div>
-      <p className={strengthTextColor}>{strength}</p>
+      {requirements && (
+        <p className="text-sm text-slate-600">{requirements}</p>
+      )}
     </div>
   );
 };

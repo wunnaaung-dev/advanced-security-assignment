@@ -22,12 +22,15 @@ const formSchema = z.object({
         message: "Username must be at least 2 characters.",
     }),
     email: z.string().email("Invalid email address"),
-    password: z.string().min(2, {
-        message: "Password blah blah",
+    password: z.string().min(8, {
+        message: "Password must be at least 8 characters.",
     }),
-    retypePassword: z.string().min(2, {
-        message: "Re type Password blah blah",
+    retypePassword: z.string().min(8, {
+        message: "Retyped password must be at least 8 characters.",
     }),
+}).refine((data) => data.password === data.retypePassword, {
+    message: "Passwords do not match",
+    path: ["retypePassword"],
 })
 
 const RegisterForm = () => {
@@ -37,6 +40,9 @@ const RegisterForm = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             username: "Cho Thar Yin Kyay Wunna Lay",
+            email: "youremail@gmail.com",
+            password: "1234",
+            retypePassword: "1234"
         },
     })
 
@@ -49,13 +55,13 @@ const RegisterForm = () => {
                 email: values.email,
                 password: values.password
             })
-            if(response.status === 200) {
+            if (response.status === 200) {
                 document.cookie = `accessToken=${response.data.accessToken}; path=/`;
                 alert(response.data.message)
                 form.reset()
             }
         } catch (error) {
-           console.log(error)
+            console.log(error)
         }
     }
 
@@ -125,7 +131,7 @@ const RegisterForm = () => {
                     )}
                 />
 
-                <CheckTrigger onSuccess={handleButtonDisable}/>
+                <CheckTrigger onSuccess={handleButtonDisable} />
 
                 <Button disabled={isButtonDisable} className="mt-4" type="submit">Register</Button>
             </form>

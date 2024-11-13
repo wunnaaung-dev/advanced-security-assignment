@@ -19,41 +19,44 @@ import RegisterForm from "../Form/RegisterForm"
 export function TabBar() {
 
   return (
-    <Tabs defaultValue="register" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="register">Register</TabsTrigger>
-        <TabsTrigger value="login">Login</TabsTrigger>
-      </TabsList>
-      <TabsContent value="register">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-center">Sign-up for your account</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <RegisterForm />
-          </CardContent>
-        </Card>
-      </TabsContent>
-      <TabsContent value="login">
-        <Card>
-          <CardHeader>
-            <CardTitle>Login to your fucking acc</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username"/>
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">Password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Login</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-    </Tabs>
+    <div className="flex flex-col justify-center items-center py-3">
+      <h1 className="text-lg font-bold">Registration for online portal</h1>
+      <Tabs defaultValue="register" className="w-[400px]">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="register">Register</TabsTrigger>
+          <TabsTrigger value="login">Login</TabsTrigger>
+        </TabsList>
+        <TabsContent value="register">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center">Sign-up for your account</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <RegisterForm />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="login">
+          <Card>
+            <CardHeader>
+              <CardTitle>Login to your fucking acc</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="username">Username</Label>
+                <Input id="username" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="new">Password</Label>
+                <Input id="new" type="password" />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button>Login</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
   )
 }
