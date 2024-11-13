@@ -1,13 +1,9 @@
-import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Tabs,
   TabsContent,
@@ -15,11 +11,12 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import RegisterForm from "../Form/RegisterForm"
+import LoginForm from "../Form/LoginForm"
 
 export function TabBar() {
 
   return (
-    <div className="flex flex-col justify-center items-center py-3">
+    <div className="flex flex-col justify-center items-center py-3 h-screen">
       <h1 className="text-lg font-bold">Registration for online portal</h1>
       <Tabs defaultValue="register" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
@@ -39,21 +36,11 @@ export function TabBar() {
         <TabsContent value="login">
           <Card>
             <CardHeader>
-              <CardTitle>Login to your fucking acc</CardTitle>
+              <CardTitle className="text-center">Sign In</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <div className="space-y-1">
-                <Label htmlFor="username">Username</Label>
-                <Input id="username" />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="new">Password</Label>
-                <Input id="new" type="password" />
-              </div>
+              <LoginForm />
             </CardContent>
-            <CardFooter>
-              <Button>Login</Button>
-            </CardFooter>
           </Card>
         </TabsContent>
       </Tabs>

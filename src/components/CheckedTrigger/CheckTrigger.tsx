@@ -47,7 +47,7 @@ const CheckTrigger: React.FC<CheckTriggerProps> = ({onSuccess}) => {
 
     return (
         <Popover>
-            <div className="relative border border-gray-200 rounded-lg p-3 mt-3">
+            <div className="border border-gray-200 rounded-lg p-3">
                 <section className="flex justify-between items-center gap-5">
                     <div className="flex gap-4 items-center">
                         <PopoverTrigger >
@@ -62,7 +62,7 @@ const CheckTrigger: React.FC<CheckTriggerProps> = ({onSuccess}) => {
                     />
                 </section>
                 {trigger === "open" && (
-                    <PopoverContent className="w-80">
+                    <PopoverContent className="w-80" side="top">
                         <ImageCaptcha onSuccess={handleCaptchaSuccess}/>
                     </PopoverContent>
                 )}
