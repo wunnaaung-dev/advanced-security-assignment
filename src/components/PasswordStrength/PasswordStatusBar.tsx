@@ -112,7 +112,7 @@ const PasswordStatusBar: React.FC<CurrentPwd> = ({ currentPwd }) => {
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <div className="w-64 h-[8px] bg-slate-200 rounded-full">
+        <div className="w-[70%] h-[8px] bg-slate-200 rounded-full">
           <div className={`transition-all duration-300 h-full rounded-full ${statusBarColor}`}></div>
         </div>
         <p className={strengthTextColor}>{strength}</p>
