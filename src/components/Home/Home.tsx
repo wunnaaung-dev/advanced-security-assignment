@@ -20,7 +20,7 @@ const Home = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6 text-center">
         <h1 className="text-2xl font-bold mb-6 text-gray-700">
-          Welcome to the <span className="font-bold text-blue-500">Fucking Conference Portal</span>!
+          Welcome to the <span className="font-bold text-blue-500">Conference Portal</span>!
         </h1>
 
         {user ? (
@@ -38,7 +38,6 @@ const Home = () => {
         ) : (
           <p className="text-gray-600 mb-8">User information not available.</p>
         )}
-        <h1 className="my-3 font-semibold text-amber-900 text-2xl">By Order of Peaky Fucking Blinders</h1>
         {/* Conference Entry Card */}
         <div
           className="bg-blue-50 p-6 rounded-lg shadow-md hover:bg-blue-100 transition duration-200 cursor-pointer"

@@ -17,24 +17,6 @@ interface ImageCaptchaProps {
 }
 
 const imageData: ImagesData = {
-    // oppa: [
-    //     { id: "oppa1", src: '/src/assets/captcha/oppa/oppa1.jpg' },
-    //     { id: "oppa2", src: '/src/assets/captcha/oppa/oppa2.jpg' },
-    //     { id: "oppa3", src: '/src/assets/captcha/oppa/oppa3.jpg' },
-    //     { id: "oppa4", src: '/src/assets/captcha/oppa/oppa4.jpg' },
-    //     { id: "oppa5", src: '/src/assets/captcha/oppa/oppa5.jpg' },
-    // ],
-    // gd: [
-    //     { id: "gd1", src: '/src/assets/captcha/gd/gd1.jpg' },
-    //     { id: "gd2", src: '/src/assets/captcha/gd/gd2.jpg' },
-    //     { id: "gd3", src: '/src/assets/captcha/gd/gd3.jpg' },
-    // ],
-    // bobby: [
-    //     { id: "bobby1", src: '/src/assets/captcha/bobby/bobby1.jpg' },
-    //     { id: "bobby2", src: '/src/assets/captcha/bobby/bobby2.jpg' },
-    //     { id: "bobby3", src: '/src/assets/captcha/bobby/bobby3.jpg' },
-    //     { id: "bobby4", src: '/src/assets/captcha/bobby/bobby4.jpg' },
-    // ],
     cars: [
         { id: "car1", src: '/src/assets/captcha/cars/car1.jpg' },
         { id: "car2", src: '/src/assets/captcha/cars/car2.jpg' },
