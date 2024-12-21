@@ -1,20 +1,7 @@
-import { useEffect, useState } from "react";
-
-interface User {
-  _id: string;
-  username: string;
-  email: string;
-}
+import { useUser } from '@/hooks/useUser'
 
 const Home = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
+  const { currentUser } = useUser();
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -23,22 +10,21 @@ const Home = () => {
           Welcome to the <span className="font-bold text-blue-500">Conference Portal</span>!
         </h1>
 
-        {user ? (
+        {currentUser ? (
           <div className="mb-8 text-start">
             <p className="text-lg font-semibold text-gray-800">
-              <span className="font-bold">User ID:</span> {user._id}
+              <span className="font-bold">User ID:</span> {currentUser._id}
             </p>
             <p className="text-lg font-semibold text-gray-800">
-              <span className="font-bold">Username:</span> {user.username}
+              <span className="font-bold">Username:</span> {currentUser.username}
             </p>
             <p className="text-lg font-semibold text-gray-800">
-              <span className="font-bold">Email:</span> {user.email}
+              <span className="font-bold">Email:</span> {currentUser.email}
             </p>
           </div>
         ) : (
           <p className="text-gray-600 mb-8">User information not available.</p>
         )}
-        {/* Conference Entry Card */}
         <div
           className="bg-blue-50 p-6 rounded-lg shadow-md hover:bg-blue-100 transition duration-200 cursor-pointer"
           onClick={() => alert("Joining the demo conference room!")}

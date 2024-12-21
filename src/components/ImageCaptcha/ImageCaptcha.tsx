@@ -196,6 +196,7 @@ const ImageCaptcha: React.FC<ImageCaptchaProps> = ({ onValidate, onSuccess }) =>
                 )}
             </div>
         </div>
+        
     );
 };
 

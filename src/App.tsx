@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterForm from './components/Form/RegisterForm';
 import OTPSetup from './pages/OTPSetup';
 import Home from './components/Home/Home';
+import { UserProvider } from './providers/UserProvider';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return(
+    <UserProvider>
+      <RouterProvider router={router} />;
+    </UserProvider>
+  )
 }
 
 export default App;

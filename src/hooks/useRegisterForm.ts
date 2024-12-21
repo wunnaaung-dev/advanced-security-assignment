@@ -50,7 +50,6 @@ export const useRegisterForm = () => {
             });
 
             if (response.status === 200) {
-                localStorage.setItem("user", JSON.stringify(response.data.user));
                 form.reset();
                 navigate("/otp-setup");
             }
